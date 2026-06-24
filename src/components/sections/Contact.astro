@@ -1,0 +1,88 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { site } from '../../data/site';
+---
+
+<section id="contato">
+  <SectionHeading
+    index="07"
+    kicker="CONTATO"
+    title="Bora marcar um show"
+    titleSize="--fs-contact-title"
+  />
+  <p class="lead">
+    Disponível para bares, festivais e eventos. Mande um e-mail e a gente
+    responde rapidinho.
+  </p>
+  <a class="ndc-cbtn email" href={`mailto:${site.email}`}>{site.email}</a>
+  <div class="socials">
+    <a
+      class="ndc-social"
+      href={site.socials.youtube}
+      target="_blank"
+      rel="noopener">▶ YouTube</a
+    >
+    <a
+      class="ndc-social"
+      href={site.socials.instagram}
+      target="_blank"
+      rel="noopener">◎ Instagram</a
+    >
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+    max-width: var(--container-1000);
+    margin: 0 auto;
+    padding: var(--space-80) var(--space-22) var(--space-70);
+    text-align: center;
+  }
+
+  /* margin-top recreates the prototype's h2 bottom gap (16px). */
+  .lead {
+    max-width: var(--container-560);
+    margin: var(--space-16) auto var(--space-32);
+    color: var(--color-text-muted);
+    font-size: var(--fs-18);
+    font-weight: 300;
+  }
+
+  .email {
+    display: inline-block;
+    padding: var(--space-16) var(--space-34);
+    background: var(--color-accent);
+    color: var(--color-bg);
+    font-family: var(--font-display);
+    font-size: var(--fs-contact-cta);
+    letter-spacing: var(--ls-06);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all var(--dur-base);
+  }
+
+  .socials {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: var(--space-16);
+    margin-top: var(--space-36);
+  }
+
+  .ndc-social {
+    display: flex;
+    align-items: center;
+    gap: var(--space-10);
+    padding: var(--space-13) var(--space-22);
+    border: var(--border-1) solid var(--color-line-20);
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+    font-size: var(--fs-14);
+    font-weight: 500;
+    letter-spacing: var(--ls-10);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all var(--dur-base);
+  }
+</style>
