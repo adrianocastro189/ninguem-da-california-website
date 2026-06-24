@@ -1,0 +1,330 @@
+/* ============================================================
+   Design tokens — single source of every design value, extracted
+   verbatim from .prototype/Site.dc.html. Values are IDENTICAL to the
+   prototype (Golden Rule, ARCHITECTURE.md §0.1). Tokenizing is a storage
+   refactor, never a visual change. This is the only file (besides
+   global.css) allowed to hold raw literals; components reference
+   var(--token) exclusively. See ARCHITECTURE.md §6.
+   ============================================================ */
+
+:root {
+  /* ---------- Colors — solids ---------- */
+  --color-bg: #0a0a0c; /* page background */
+  --color-text: #e8e8e8; /* default body text */
+  --color-text-muted: #cfcfcf; /* secondary copy */
+  --color-text-dim: #9a9a9a; /* tertiary copy */
+  --color-text-faint: #8a8a8a; /* counters, captions placeholder */
+  --color-white: #fff;
+  --color-black: #000;
+  --color-accent: #b026ff; /* neon purple */
+  --color-accent-deep: #7a2bb0; /* polaroid role text */
+  --color-nav-link: #bdbdbd; /* desktop nav links */
+  --color-paper: #f4f1ea; /* polaroid card */
+  --color-ink: #141414; /* polaroid member name */
+  --color-rep-num: #555; /* repertoire index */
+  --color-rep-title: #ececec; /* repertoire track title */
+  --color-rep-nolink: #444; /* repertoire disabled play icon */
+  --color-footer: #6a6a6a; /* footer copyright */
+  --color-gallery-foto: #7a7a7a; /* gallery [ FOTO ] placeholder text */
+  --color-polaroid-img-bg: #1a1a1d; /* polaroid image area fallback */
+  --color-gallery-bg: #111; /* gallery slide fallback */
+
+  /* No-photo diagonal stripe pairs */
+  --color-stripe-member-a: #161619;
+  --color-stripe-member-b: #1d1d21;
+  --color-stripe-gallery-a: #141417;
+  --color-stripe-gallery-b: #1b1b1f;
+
+  /* ---------- Colors — accent alphas ---------- */
+  --color-accent-60: rgb(176 38 255 / 60%);
+  --color-accent-50: rgb(176 38 255 / 50%);
+  --color-accent-35: rgb(176 38 255 / 35%);
+  --color-accent-15: rgb(176 38 255 / 15%);
+  --color-accent-08: rgb(176 38 255 / 8%);
+
+  /* ---------- Colors — background alphas ---------- */
+  --color-bg-72: rgb(10 10 12 / 72%); /* nav bar */
+  --color-bg-70: rgb(10 10 12 / 70%); /* gallery counter chip */
+  --color-bg-60: rgb(10 10 12 / 60%); /* carousel arrows */
+  --color-bg-97: rgb(10 10 12 / 97%); /* mobile menu overlay */
+
+  /* ---------- Colors — white alphas (hairlines / fills) ---------- */
+  --color-line: rgb(255 255 255 / 8%); /* nav + footer borders */
+  --color-line-strong: rgb(255 255 255 / 12%); /* video / gallery border */
+  --color-line-soft: rgb(255 255 255 / 6%); /* repertoire row border */
+  --color-line-faint: rgb(255 255 255 / 2%); /* repertoire row bg */
+  --color-line-30: rgb(255 255 255 / 30%); /* arrow border */
+  --color-line-25: rgb(255 255 255 / 25%); /* hero secondary button */
+  --color-line-20: rgb(255 255 255 / 20%); /* social / agenda border */
+  --color-line-10: rgb(255 255 255 / 10%); /* repertoire no-link border */
+  --color-line-03: rgb(255 255 255 / 3%); /* agenda show row bg */
+  --color-line-015: rgb(255 255 255 / 1.5%); /* agenda empty stripe */
+  --color-band-light: rgb(255 255 255 / 4.5%); /* VHS rolling band */
+
+  /* ---------- Colors — black alphas ---------- */
+  --color-shadow-60: rgb(0 0 0 / 60%); /* video drop shadow */
+  --color-shadow-55: rgb(0 0 0 / 55%); /* polaroid shadow / vignette */
+  --color-scanline: rgb(0 0 0 / 10%); /* VHS scanlines */
+
+  /* ---------- Colors — chroma (RGB split) ---------- */
+  --color-chroma-cyan: rgb(0 229 255 / 50%);
+  --color-chroma-pink: rgb(255 45 170 / 50%);
+  --color-chroma-cyan-strong: rgb(0 229 255 / 55%);
+  --color-chroma-pink-strong: rgb(255 45 170 / 55%);
+  --color-chroma-cyan-soft: rgb(0 229 255 / 40%);
+  --color-chroma-pink-soft: rgb(255 45 170 / 40%);
+
+  /* ---------- Typography — families ---------- */
+  --font-display: 'Anton', sans-serif;
+  --font-body: 'Oswald', sans-serif;
+  --font-mono: 'VT323', monospace;
+
+  /* ---------- Typography — fluid sizes (clamps) ---------- */
+  --fs-section-title: clamp(34px, 6vw, 64px); /* section <h2> */
+  --fs-contact-title: clamp(36px, 7vw, 72px); /* contact <h2> */
+  --fs-hero-lead: clamp(15px, 2.2vw, 19px); /* hero paragraph */
+  --fs-history: clamp(16px, 2vw, 20px); /* history paragraph */
+  --fs-contact-cta: clamp(20px, 4vw, 30px); /* contact e-mail button */
+
+  /* ---------- Typography — fixed sizes ---------- */
+  --fs-13: 13px;
+  --fs-14: 14px;
+  --fs-15: 15px;
+  --fs-16: 16px;
+  --fs-17: 17px;
+  --fs-18: 18px;
+  --fs-19: 19px;
+  --fs-20: 20px;
+  --fs-22: 22px;
+  --fs-26: 26px;
+  --fs-30: 30px;
+  --fs-34: 34px;
+
+  /* ---------- Typography — letter spacing ---------- */
+  --ls-01: 0.01em;
+  --ls-04: 0.04em;
+  --ls-06: 0.06em;
+  --ls-08: 0.08em;
+  --ls-10: 0.1em;
+  --ls-12: 0.12em;
+  --ls-15: 0.15em;
+  --ls-18: 0.18em;
+  --ls-25: 0.25em;
+  --ls-30: 0.3em;
+
+  /* ---------- Typography — line heights ---------- */
+  --lh-tight: 1;
+  --lh-hero: 1.55;
+  --lh-prose: 1.75;
+
+  /* ---------- Spacing scale (px values from the prototype) ---------- */
+  --space-2: 2px;
+  --space-3: 3px;
+  --space-4: 4px;
+  --space-5: 5px;
+  --space-6: 6px;
+  --space-7: 7px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-13: 13px;
+  --space-14: 14px;
+  --space-16: 16px;
+  --space-18: 18px;
+  --space-20: 20px;
+  --space-22: 22px;
+  --space-24: 24px;
+  --space-26: 26px;
+  --space-28: 28px;
+  --space-30: 30px;
+  --space-34: 34px;
+  --space-36: 36px;
+  --space-40: 40px;
+  --space-46: 46px;
+  --space-48: 48px;
+  --space-50: 50px;
+  --space-60: 60px;
+  --space-70: 70px;
+  --space-80: 80px;
+  --space-90: 90px;
+  --space-120: 120px;
+  --space-130: 130px;
+
+  /* ---------- Borders ---------- */
+  --border-1: 1px;
+  --border-2: 2px;
+  --border-3: 3px;
+
+  /* ---------- Containers / widths ---------- */
+  --container-560: 560px;
+  --container-620: 620px;
+  --container-760: 760px;
+  --container-920: 920px;
+  --container-1000: 1000px;
+  --container-1080: 1080px;
+  --container-1180: 1180px;
+  --w-logo-nav: 30px; /* nav logo height */
+  --w-logo-footer: 34px; /* footer logo height */
+  --w-logo-hero: min(620px, 88vw); /* hero logo width */
+  --w-short: min(330px, 78vw); /* shorts player width */
+  --w-card-member: 230px; /* polaroid card width */
+  --w-arrow: 46px; /* carousel arrow box */
+  --w-rep-link: 34px; /* repertoire play icon box */
+  --w-rep-num: 30px; /* repertoire index column */
+  --w-icon: 16px; /* inline play svg */
+  --w-burger: 26px; /* mobile burger line */
+  --min-member-col: 220px; /* members grid track */
+  --min-rep-col: 330px; /* repertoire grid track */
+  --min-show-info: 160px; /* agenda show info */
+  --min-show-date: 120px; /* agenda show date */
+
+  /* ---------- Aspect ratios ---------- */
+  --ratio-video: 16/9;
+  --ratio-square: 1/1;
+  --ratio-short: 9/16;
+
+  /* ---------- Blur ---------- */
+  --blur-nav: 10px;
+
+  /* ---------- Shadows ---------- */
+  --shadow-video:
+    0 0 0 1px var(--color-accent-15), 0 24px 60px var(--color-shadow-60);
+  --shadow-polaroid: 0 18px 40px var(--color-shadow-55);
+  --shadow-social-hover: 0 0 24px var(--color-accent-35);
+  --shadow-cbtn-hover: 0 0 30px var(--color-accent-50);
+  --shadow-caption: 0 2px 8px var(--color-black);
+
+  /* ---------- Chroma filters / text shadows ---------- */
+  --filter-logo-nav: drop-shadow(1px 0 0 var(--color-chroma-cyan))
+    drop-shadow(-1px 0 0 var(--color-chroma-pink));
+  --filter-logo-hero: drop-shadow(2px 0 0 var(--color-chroma-cyan-strong))
+    drop-shadow(-2px 0 0 var(--color-chroma-pink-strong));
+  --text-shadow-glitch:
+    2px 0 var(--color-chroma-cyan-soft), -2px 0 var(--color-chroma-pink-soft);
+
+  /* ---------- VHS overlay backgrounds ---------- */
+  --vhs-scanlines: repeating-linear-gradient(
+    to bottom,
+    rgb(0 0 0 / 0%) 0px,
+    rgb(0 0 0 / 0%) 2px,
+    var(--color-scanline) 3px,
+    var(--color-scanline) 4px
+  );
+  --vhs-band: linear-gradient(
+    to bottom,
+    rgb(255 255 255 / 0%),
+    var(--color-band-light),
+    rgb(255 255 255 / 0%)
+  );
+  --vhs-vignette: radial-gradient(
+    ellipse at center,
+    rgb(0 0 0 / 0%) 55%,
+    var(--color-shadow-55) 100%
+  );
+
+  /* ---------- No-photo diagonal stripe fills ---------- */
+  --stripe-member: repeating-linear-gradient(
+    45deg,
+    var(--color-stripe-member-a),
+    var(--color-stripe-member-a) 9px,
+    var(--color-stripe-member-b) 9px,
+    var(--color-stripe-member-b) 18px
+  );
+  --stripe-gallery: repeating-linear-gradient(
+    45deg,
+    var(--color-stripe-gallery-a),
+    var(--color-stripe-gallery-a) 14px,
+    var(--color-stripe-gallery-b) 14px,
+    var(--color-stripe-gallery-b) 28px
+  );
+  --stripe-agenda: repeating-linear-gradient(
+    45deg,
+    var(--color-line-015),
+    var(--color-line-015) 14px,
+    transparent 14px,
+    transparent 28px
+  );
+
+  /* ---------- Z-index layers ---------- */
+  --z-overlay-base: 90; /* VHS scanlines */
+  --z-overlay-band: 91;
+  --z-overlay-vignette: 92;
+  --z-overlay-flicker: 93;
+  --z-mobile-menu: 99;
+  --z-nav: 100;
+  --z-card-hover: 5;
+  --z-carousel-control: 3;
+  --z-caption: 2;
+
+  /* ---------- Motion — durations ---------- */
+  --dur-fast: 0.15s;
+  --dur-base: 0.2s;
+  --dur-link: 0.25s;
+  --dur-card: 0.3s;
+  --dur-img: 0.4s;
+  --dur-slide: 0.5s;
+  --dur-wiggle: 0.7s;
+  --dur-scan: 0.5s;
+  --dur-band: 7s;
+  --dur-flick: 4s;
+
+  /* ---------- Motion — easing ---------- */
+  --ease-slide: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================================
+   VHS keyframes — copied exactly from the prototype.
+   ============================================================ */
+@keyframes ndc-scan {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(6px);
+  }
+}
+
+@keyframes ndc-band {
+  0% {
+    top: -30%;
+  }
+
+  100% {
+    top: 130%;
+  }
+}
+
+@keyframes ndc-flick {
+  0%,
+  100% {
+    opacity: 0.04;
+  }
+
+  50% {
+    opacity: 0.07;
+  }
+}
+
+@keyframes ndc-wiggle {
+  0% {
+    transform: rotate(var(--r)) translateY(0);
+  }
+
+  50% {
+    transform: rotate(calc(var(--r) * -0.4)) translateY(-10px) scale(1.04);
+  }
+
+  100% {
+    transform: rotate(var(--r)) translateY(0);
+  }
+}
+
+@keyframes ndc-marq {
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}

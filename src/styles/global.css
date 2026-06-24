@@ -1,0 +1,28 @@
+/* ============================================================
+   Global reset — ported verbatim from the prototype's top-level style
+   block (box-sizing, smooth scroll, page background, horizontal overflow
+   lock, selection colors). All values reference design tokens. Component
+   styling lives in scoped style blocks. See ARCHITECTURE.md §6.
+   ============================================================ */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+  background: var(--color-bg);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-bg);
+}
