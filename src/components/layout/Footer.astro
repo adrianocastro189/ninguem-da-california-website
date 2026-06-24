@@ -1,0 +1,53 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const logoWhite = `${base}/assets/logo-white.png`;
+const privacyUrl = `${base}/privacidade`;
+const year = new Date().getFullYear();
+---
+
+<footer>
+  <img class="logo" src={logoWhite} alt="Ninguém da Califórnia" />
+  <div class="copy">
+    © {year} NINGUÉM DA CALIFÓRNIA · TODOS OS DIREITOS RESERVADOS
+  </div>
+  <a class="privacy" href={privacyUrl}>Política de privacidade</a>
+</footer>
+
+<style>
+  footer {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-14);
+    padding: var(--space-36) var(--space-22);
+    border-top: var(--border-1) solid var(--color-line);
+  }
+
+  .logo {
+    height: var(--w-logo-footer);
+    width: auto;
+    opacity: 0.85;
+  }
+
+  .copy {
+    color: var(--color-footer);
+    font-family: var(--font-mono);
+    font-size: var(--fs-17);
+    letter-spacing: var(--ls-12);
+    text-align: center;
+  }
+
+  .privacy {
+    color: var(--color-footer);
+    font-family: var(--font-mono);
+    font-size: var(--fs-13);
+    letter-spacing: var(--ls-12);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  .privacy:hover {
+    color: var(--color-accent);
+  }
+</style>
