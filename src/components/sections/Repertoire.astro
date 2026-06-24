@@ -1,0 +1,143 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { site } from '../../data/site';
+import { pad2 } from '../../lib/format';
+---
+
+<section id="repertorio">
+  <SectionHeading index="05" kicker="REPERTÓRIO" title="Setlist" />
+  <div class="subtitle">{pad2(site.repertoire.length)} faixas e contando</div>
+  <div class="grid">
+    {
+      site.repertoire.map((track, i) => (
+        <div class="ndc-rep">
+          <div class="ndc-rnum">{pad2(i + 1)}</div>
+          <div class="info">
+            <div class="title">{track.title}</div>
+            <div class="artist">{track.artist}</div>
+          </div>
+          {track.link ? (
+            <a
+              class="rep-link"
+              href={track.link}
+              target="_blank"
+              rel="noopener"
+              title="Ouvir no YouTube"
+            >
+              <svg class="ic" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </a>
+          ) : (
+            <span class="rep-nolink" title="Link em breve">
+              <svg class="ic" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </span>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+    max-width: var(--container-1180);
+    margin: 0 auto;
+    padding: var(--space-70) var(--space-22) var(--space-90);
+  }
+
+  /* margin-top recreates the prototype's h2 bottom gap (8px). */
+  .subtitle {
+    margin-top: var(--space-8);
+    margin-bottom: var(--space-28);
+    color: var(--color-text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--fs-18);
+    letter-spacing: var(--ls-06);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(var(--min-rep-col), 1fr));
+    gap: var(--space-2);
+  }
+
+  .ndc-rep {
+    display: flex;
+    align-items: center;
+    gap: var(--space-14);
+    padding: var(--space-12) var(--space-14);
+    background: var(--color-line-faint);
+    border-bottom: var(--border-1) solid var(--color-line-soft);
+    transition: background var(--dur-fast);
+  }
+
+  .ndc-rnum {
+    flex: 0 0 auto;
+    width: var(--w-rep-num);
+    color: var(--color-rep-num);
+    font-family: var(--font-mono);
+    font-size: var(--fs-20);
+    transition: color var(--dur-base);
+  }
+
+  .info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .title {
+    color: var(--color-rep-title);
+    font-family: var(--font-body);
+    font-size: var(--fs-16);
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .artist {
+    color: var(--color-text-dim);
+    font-size: var(--fs-13);
+    font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .rep-link,
+  .rep-nolink {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: var(--w-rep-link);
+    height: var(--w-rep-link);
+  }
+
+  .rep-link {
+    border: var(--border-1) solid var(--color-accent-50);
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: all var(--dur-base);
+  }
+
+  /* Matches the prototype's style-hover on the play link. */
+  .rep-link:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+  }
+
+  .rep-nolink {
+    border: var(--border-1) solid var(--color-line-10);
+    color: var(--color-rep-nolink);
+  }
+
+  .ic {
+    width: var(--w-icon);
+    height: var(--w-icon);
+  }
+</style>
