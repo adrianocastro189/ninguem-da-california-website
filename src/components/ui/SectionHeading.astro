@@ -1,0 +1,40 @@
+---
+interface Props {
+  index: string;
+  kicker: string;
+  title: string;
+  /**
+   * Token name driving the <h2> size. Defaults to the section title token;
+   * Contact passes '--fs-contact-title' for the larger heading (F1.13).
+   */
+  titleSize?: string;
+}
+
+const { index, kicker, title, titleSize = '--fs-section-title' } = Astro.props;
+---
+
+<div class="kicker">// {index} — {kicker}</div>
+<h2 style={`--heading-size: var(${titleSize})`}>{title}</h2>
+
+<style>
+  /* The kicker spacing is constant across sections; the gap below the <h2>
+     varies per section and is owned by each section, so the heading keeps a
+     zero bottom margin here. */
+  .kicker {
+    margin-bottom: var(--space-6);
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--fs-18);
+    letter-spacing: var(--ls-25);
+  }
+
+  h2 {
+    margin: 0;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: var(--heading-size);
+    font-weight: 400;
+    text-shadow: var(--text-shadow-glitch);
+    text-transform: uppercase;
+  }
+</style>
