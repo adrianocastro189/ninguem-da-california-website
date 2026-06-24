@@ -1,7 +1,43 @@
 ---
 import BaseLayout from '../components/layout/BaseLayout.astro';
+import VhsOverlays from '../components/layout/VhsOverlays.astro';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import Hero from '../components/sections/Hero.astro';
+import History from '../components/sections/History.astro';
+import Members from '../components/sections/Members.astro';
+import Gallery from '../components/sections/Gallery.astro';
+import Shorts from '../components/sections/Shorts.astro';
+import Repertoire from '../components/sections/Repertoire.astro';
+import Agenda from '../components/sections/Agenda.astro';
+import Contact from '../components/sections/Contact.astro';
 ---
 
 <BaseLayout>
-  <main></main>
+  <div class="root">
+    <VhsOverlays />
+    <Header />
+    <main>
+      <Hero />
+      <History />
+      <Members />
+      <Gallery />
+      <Shorts />
+      <Repertoire />
+      <Agenda />
+      <Contact />
+    </main>
+    <Footer />
+  </div>
 </BaseLayout>
+
+<style>
+  .root {
+    position: relative;
+    min-height: 100vh;
+    overflow: hidden;
+    background: var(--color-bg);
+    color: var(--color-text);
+    font-family: var(--font-body);
+  }
+</style>
