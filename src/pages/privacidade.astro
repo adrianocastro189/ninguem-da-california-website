@@ -1,0 +1,126 @@
+---
+import BaseLayout from '../components/layout/BaseLayout.astro';
+import { site } from '../data/site';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const homeUrl = `${base}/`;
+
+// Last updated — bump when the content changes.
+const lastUpdated = new Date('2026-06-24');
+const dateLabel = new Intl.DateTimeFormat('pt-BR', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+}).format(lastUpdated);
+---
+
+<BaseLayout
+  title="Política de privacidade — Ninguém da Califórnia"
+  description="Como tratamos os dados de quem visita o site da banda Ninguém da Califórnia."
+>
+  <main class="page">
+    <a class="back" href={homeUrl}>‹ Voltar para o site</a>
+    <h1>Política de privacidade</h1>
+    <p class="meta">Última atualização: {dateLabel}</p>
+
+    <div class="body">
+      <h2>Dados que coletamos</h2>
+      <p>
+        Este site é estático e não possui cadastro, login nem formulários. Não
+        coletamos nome, e-mail ou qualquer dado pessoal de quem navega por aqui.
+        Pretendemos usar o Cloudflare Web Analytics para entender o volume de
+        visitas de forma agregada e anônima, sem cookies e sem identificar
+        pessoas individualmente.
+      </p>
+
+      <h2>Conteúdo de terceiros</h2>
+      <p>
+        Os vídeos são incorporados pelo YouTube no modo de privacidade reforçada
+        (nocookie), e há links para nossos perfis no YouTube e no Instagram. Ao
+        abrir esses serviços, você passa a seguir as políticas de privacidade
+        deles, que não controlamos.
+      </p>
+
+      <h2>Cookies</h2>
+      <p>
+        Não utilizamos cookies de rastreamento nem de publicidade. Caso algum
+        conteúdo de terceiros (como o player do YouTube) defina cookies
+        próprios, isso ocorre apenas quando você interage com ele.
+      </p>
+
+      <h2>Contato</h2>
+      <p>
+        Dúvidas sobre privacidade? Fale com a gente em{' '}
+        <a href={`mailto:${site.email}`}>{site.email}</a>.
+      </p>
+    </div>
+  </main>
+</BaseLayout>
+
+<style>
+  .page {
+    max-width: var(--container-760);
+    margin: 0 auto;
+    padding: var(--space-80) var(--space-22);
+    color: var(--color-text-muted);
+    font-family: var(--font-body);
+    font-weight: 300;
+  }
+
+  .back {
+    display: inline-block;
+    margin-bottom: var(--space-36);
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--fs-18);
+    letter-spacing: var(--ls-10);
+    text-decoration: none;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    margin: 0;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: var(--fs-section-title);
+    font-weight: 400;
+    text-shadow: var(--text-shadow-glitch);
+    text-transform: uppercase;
+  }
+
+  .meta {
+    margin-top: var(--space-6);
+    margin-bottom: var(--space-36);
+    color: var(--color-text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--fs-16);
+    letter-spacing: var(--ls-06);
+  }
+
+  .body {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-8);
+  }
+
+  .body h2 {
+    margin: var(--space-16) 0 0;
+    color: var(--color-white);
+    font-family: var(--font-display);
+    font-size: var(--fs-22);
+    font-weight: 400;
+    text-transform: uppercase;
+  }
+
+  .body p {
+    margin: 0;
+    font-size: var(--fs-history);
+    line-height: var(--lh-prose);
+  }
+
+  .body a {
+    color: var(--color-accent);
+    text-decoration: none;
+    border-bottom: var(--border-1) solid var(--color-accent);
+  }
+</style>
