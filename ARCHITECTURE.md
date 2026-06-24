@@ -23,14 +23,14 @@ content lives in one JSON file the band edits and commits.
 
 ## 2. Stack
 
-| Concern        | Choice                                              |
-|----------------|-----------------------------------------------------|
-| Framework      | **Astro** `5.1.x`, `output: 'static'`               |
-| Interactivity  | **Alpine.js** `3.x` (carousels + mobile menu only)  |
-| Data           | Single `src/data/site.json`, validated by **Zod**   |
-| Styling        | Hand-authored CSS via **design tokens** (no literals)|
-| Hosting        | GitHub Pages via GitHub Actions                     |
-| Language       | pt_BR only (no i18n)                                 |
+| Concern       | Choice                                                |
+| ------------- | ----------------------------------------------------- |
+| Framework     | **Astro** `5.1.x`, `output: 'static'`                 |
+| Interactivity | **Alpine.js** `3.x` (carousels + mobile menu only)    |
+| Data          | Single `src/data/site.json`, validated by **Zod**     |
+| Styling       | Hand-authored CSS via **design tokens** (no literals) |
+| Hosting       | GitHub Pages via GitHub Actions                       |
+| Language      | pt_BR only (no i18n)                                  |
 
 Pinned, mirroring the sister project `dont-step-wrong-website`:
 `astro@5.1.x`, `alpinejs@3.x`, `@types/alpinejs@3.x`. Node `>=20`.
@@ -54,14 +54,14 @@ The design is delivered under `.prototype/` as a Claude Design Component
 
 ### Prototype → Astro translation
 
-| Prototype (dc-runtime)       | Astro                              |
-|------------------------------|------------------------------------|
-| `{{ expr }}`                 | `{expr}` (build-time)              |
-| `<sc-for list as>`          | `{items.map(...)}`                 |
-| `<sc-if value>`             | `{cond && ...}`                    |
-| `DCLogic.renderVals()` logic | pure helpers in `src/lib/`         |
-| `window.SITE_CONFIG` (.js)   | `src/data/site.json` (validated)   |
-| React state (carousels/menu) | Alpine.js `x-data`                 |
+| Prototype (dc-runtime)       | Astro                            |
+| ---------------------------- | -------------------------------- |
+| `{{ expr }}`                 | `{expr}` (build-time)            |
+| `<sc-for list as>`           | `{items.map(...)}`               |
+| `<sc-if value>`              | `{cond && ...}`                  |
+| `DCLogic.renderVals()` logic | pure helpers in `src/lib/`       |
+| `window.SITE_CONFIG` (.js)   | `src/data/site.json` (validated) |
+| React state (carousels/menu) | Alpine.js `x-data`               |
 
 ## 4. The single central JSON (the "database")
 
@@ -116,8 +116,9 @@ public/
 ```
 
 One section = one component. The repeated section header (`// 0N — TITLE`
-+ `<h2>`) is extracted into `components/ui/SectionHeading.astro` so jscpd
-(threshold 0) stays green.
+
+- `<h2>`) is extracted into `components/ui/SectionHeading.astro` so jscpd
+  (threshold 0) stays green.
 
 ## 6. Styling — tokens only
 
@@ -135,7 +136,7 @@ The CEO selected the strict CSS regime. Therefore:
 - Component styles live in scoped `<style>` blocks inside `.astro` files
   and use only `var(--token)`. **stylelint** forbids raw hex and raw
   length units in those blocks, forcing tokenization.
-- Tokens are a refactor of *storage*, not of *appearance*. Token values
+- Tokens are a refactor of _storage_, not of _appearance_. Token values
   equal the prototype values exactly (golden rule §0.1).
 
 ## 7. Testing
@@ -155,16 +156,16 @@ threshold.
 
 Adapted from the proletarias dashboard. Any failure breaks the build.
 
-| Step          | Command                                  | Guarantees                         |
-|---------------|------------------------------------------|------------------------------------|
-| typecheck     | `astro check` / `tsc --noEmit`           | TS strict, no `any`                |
-| lint          | `eslint .`                               | code style, import hygiene         |
-| css guard     | `node scripts/check-css-allowlist.mjs`   | only tokens.css/global.css in src  |
-| lint:css      | `stylelint "src/**/*.{css,astro}"`       | no raw hex/length; tokens only     |
-| jscpd         | `jscpd src` (threshold 0)                | zero copy-paste                    |
-| format:check  | `prettier --check .`                     | single formatting                  |
-| test          | `vitest run`                             | helper logic correct (no coverage) |
-| build         | `astro build`                            | catches asset/alias regressions    |
+| Step         | Command                                | Guarantees                         |
+| ------------ | -------------------------------------- | ---------------------------------- |
+| typecheck    | `astro check` / `tsc --noEmit`         | TS strict, no `any`                |
+| lint         | `eslint .`                             | code style, import hygiene         |
+| css guard    | `node scripts/check-css-allowlist.mjs` | only tokens.css/global.css in src  |
+| lint:css     | `stylelint "src/**/*.{css,astro}"`     | no raw hex/length; tokens only     |
+| jscpd        | `jscpd src` (threshold 0)              | zero copy-paste                    |
+| format:check | `prettier --check .`                   | single formatting                  |
+| test         | `vitest run`                           | helper logic correct (no coverage) |
+| build        | `astro build`                          | catches asset/alias regressions    |
 
 `husky` + `lint-staged` run the relevant gates on staged files pre-commit.
 Commits follow Conventional Commits. Never bypass hooks (`--no-verify`).

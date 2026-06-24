@@ -1,0 +1,6 @@
+# .prototype/ is reference-only and never bundled (ARCHITECTURE.md §3).
+.prototype/
+node_modules/
+dist/
+.astro/
+package-lock.json

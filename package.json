@@ -16,9 +16,20 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "test": "vitest run",
-    "validate": "npm run typecheck && npm run lint && npm run css:guard && npm run lint:css && npm run jscpd && npm run format:check && npm run test && npm run build"
+    "validate": "npm run typecheck && npm run lint && npm run css:guard && npm run lint:css && npm run jscpd && npm run format:check && npm run test && npm run build",
+    "prepare": "husky"
   },
-  "engines": { "node": ">=20" },
+  "engines": {
+    "node": ">=20"
+  },
+  "lint-staged": {
+    "*.{astro,ts,js,mjs,json,css,md}": [
+      "prettier --write"
+    ],
+    "src/**/*.{astro,css}": [
+      "stylelint"
+    ]
+  },
   "dependencies": {
     "astro": "5.1.x",
     "alpinejs": "3.x"

@@ -1,0 +1,22 @@
+{
+  "extends": "stylelint-config-standard",
+  "overrides": [
+    { "files": ["**/*.astro"], "customSyntax": "postcss-html" },
+    {
+      "files": ["src/styles/tokens.css"],
+      "rules": {
+        "color-no-hex": null,
+        "declaration-property-value-disallowed-list": null
+      }
+    }
+  ],
+  "rules": {
+    "color-no-hex": true,
+    "declaration-property-value-disallowed-list": {
+      "/.*/": ["/\\d+px/", "/\\d+rem/"]
+    },
+    "custom-property-pattern": null,
+    "keyframes-name-pattern": null,
+    "selector-class-pattern": null
+  }
+}
