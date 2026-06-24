@@ -1,0 +1,44 @@
+{
+  "name": "ninguem-da-california-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "typecheck": "astro check",
+    "lint": "eslint .",
+    "css:guard": "node scripts/check-css-allowlist.mjs",
+    "lint:css": "stylelint \"src/**/*.{css,astro}\" --allow-empty-input",
+    "jscpd": "jscpd src",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "test": "vitest run",
+    "validate": "npm run typecheck && npm run lint && npm run css:guard && npm run lint:css && npm run jscpd && npm run format:check && npm run test && npm run build"
+  },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "astro": "5.1.x",
+    "alpinejs": "3.x"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.x",
+    "@types/alpinejs": "3.x",
+    "typescript": "5.7.x",
+    "eslint": "9.x",
+    "@eslint/js": "9.x",
+    "eslint-plugin-astro": "1.x",
+    "globals": "15.x",
+    "stylelint": "16.x",
+    "stylelint-config-standard": "37.x",
+    "postcss-html": "1.x",
+    "jscpd": "4.x",
+    "prettier": "3.x",
+    "prettier-plugin-astro": "0.14.x",
+    "vitest": "3.x",
+    "husky": "9.x",
+    "lint-staged": "15.x"
+  }
+}
