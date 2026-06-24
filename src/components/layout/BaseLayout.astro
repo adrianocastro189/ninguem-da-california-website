@@ -1,0 +1,74 @@
+---
+import { site } from '../../data/site';
+import '../../styles/tokens.css';
+import '../../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'Ninguém da Califórnia — banda de rock de Juiz de Fora',
+  description = 'Ninguém da Califórnia — banda de rock de Juiz de Fora/MG. Rock dos anos 90 e 2000 com foco nos lados B de Nirvana, Foo Fighters, Muse, Radiohead e mais.',
+} = Astro.props;
+
+// All site-served images resolve against the project-pages base path so
+// they keep working before the custom domain is pointed (ARCHITECTURE.md §9).
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (path: string): string => `${base}/${path}`;
+const logoWhite = asset('assets/logo-white.png');
+const ogImage = new URL(logoWhite, Astro.site).href;
+
+// JSON-LD MusicGroup so search engines understand the band (ARCHITECTURE.md §10).
+const musicGroupSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MusicGroup',
+  name: 'Ninguém da Califórnia',
+  url: Astro.site?.href,
+  member: site.members.map((m) => ({
+    '@type': 'Person',
+    name: m.name,
+    roleName: m.role,
+  })),
+  sameAs: [site.socials.youtube, site.socials.instagram],
+};
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+
+    <link rel="icon" href={logoWhite} />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify(musicGroupSchema)}
+    />
+  </head>
+  <body>
+    <slot />
+
+    <script>
+      import Alpine from 'alpinejs';
+
+      Alpine.start();
+    </script>
+  </body>
+</html>
