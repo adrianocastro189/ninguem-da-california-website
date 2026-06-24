@@ -3,7 +3,10 @@ import BaseLayout from '../components/layout/BaseLayout.astro';
 import { site } from '../data/site';
 
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const homeUrl = `${base}/`;
+// trailingSlash is 'never' (astro.config), so the home URL must NOT end in a
+// slash — otherwise the link 404s to Astro's default page. base is '' on a
+// root deploy, where '/' is correct.
+const homeUrl = base || '/';
 
 // Last updated — bump when the content changes.
 const lastUpdated = new Date('2026-06-24');
