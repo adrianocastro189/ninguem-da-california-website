@@ -1,0 +1,29 @@
+---
+interface Props {
+  dir: 'prev' | 'next';
+  /** Alpine expression run on click, e.g. "prev()" / "next()". */
+  click: string;
+}
+
+const { dir, click } = Astro.props;
+---
+
+<button class="ndc-arrow" type="button" x-on:click={click}>
+  {dir === 'prev' ? '‹' : '›'}
+</button>
+
+<style>
+  /* Common arrow styling shared by the gallery and shorts carousels. Each
+     carousel positions the arrow itself (absolute vs flex item). */
+  .ndc-arrow {
+    flex: 0 0 auto;
+    width: var(--w-arrow);
+    height: var(--w-arrow);
+    border: var(--border-1) solid var(--color-line-30);
+    background: var(--color-bg-60);
+    color: var(--color-white);
+    font-size: var(--fs-22);
+    cursor: pointer;
+    transition: all var(--dur-base);
+  }
+</style>
