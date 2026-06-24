@@ -1,0 +1,116 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import { site } from '../../data/site';
+import { memberRotation } from '../../lib/format';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (path: string): string => `${base}/${path}`;
+---
+
+<section id="banda">
+  <SectionHeading index="02" kicker="INTEGRANTES" title="Quem toca" />
+  <div class="grid">
+    {
+      site.members.map((member, i) => {
+        const rot = memberRotation(i);
+        return (
+          <div
+            class="ndc-pola"
+            style={`--r: ${rot}; transform: rotate(${rot})`}
+          >
+            <div
+              class="ndc-pimg"
+              style={
+                member.photo
+                  ? `background-image: url('${asset(member.photo)}')`
+                  : ''
+              }
+            >
+              {!member.photo && <div class="noimg">[ FOTO ]</div>}
+            </div>
+            <div class="caption">
+              <div class="name">{member.name}</div>
+              <div class="role">{member.role}</div>
+            </div>
+          </div>
+        );
+      })
+    }
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+    max-width: var(--container-1180);
+    margin: 0 auto;
+    padding: var(--space-70) var(--space-22) var(--space-90);
+  }
+
+  /* margin-top recreates the prototype's h2 bottom gap (40px). */
+  .grid {
+    margin-top: var(--space-40);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(var(--min-member-col), 1fr));
+    gap: var(--space-30) var(--space-24);
+    justify-items: center;
+  }
+
+  .ndc-pola {
+    width: var(--w-card-member);
+    padding: var(--space-14) var(--space-14) 0;
+    background: var(--color-paper);
+    box-shadow: var(--shadow-polaroid);
+    cursor: default;
+    transition: transform var(--dur-card);
+  }
+
+  .ndc-pimg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: var(--ratio-square);
+    overflow: hidden;
+    background-color: var(--color-polaroid-img-bg);
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--dur-img);
+  }
+
+  .noimg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: var(--space-10);
+    background: var(--stripe-member);
+    color: var(--color-text-faint);
+    font-family: var(--font-mono);
+    font-size: var(--fs-15);
+    letter-spacing: var(--ls-12);
+    text-align: center;
+  }
+
+  .caption {
+    padding: var(--space-14) var(--space-4) var(--space-18);
+    text-align: center;
+  }
+
+  .name {
+    color: var(--color-ink);
+    font-family: var(--font-display);
+    font-size: var(--fs-22);
+    line-height: var(--lh-tight);
+    text-transform: uppercase;
+  }
+
+  .role {
+    margin-top: var(--space-6);
+    color: var(--color-accent-deep);
+    font-family: var(--font-mono);
+    font-size: var(--fs-19);
+    letter-spacing: var(--ls-04);
+  }
+</style>
