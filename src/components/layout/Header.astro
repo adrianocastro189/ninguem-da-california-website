@@ -1,0 +1,164 @@
+---
+// Fixed nav bar plus the full-screen mobile menu, sharing one Alpine scope
+// (open). Ported from the prototype L46-77. The section links are a single
+// array mapped into both the desktop nav and the mobile overlay; Contato is
+// a separate styled call-to-action in each.
+const navLinks = [
+  { label: 'História', href: '#historia' },
+  { label: 'Banda', href: '#banda' },
+  { label: 'Galeria', href: '#galeria' },
+  { label: 'Vídeos', href: '#videos' },
+  { label: 'Repertório', href: '#repertorio' },
+  { label: 'Agenda', href: '#agenda' },
+];
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const logoWhite = `${base}/assets/logo-white.png`;
+---
+
+<div x-data="{ open: false }">
+  <nav>
+    <a class="brand" href="#topo">
+      <img src={logoWhite} alt="Ninguém da Califórnia" />
+    </a>
+    <div class="ndc-desknav">
+      {
+        navLinks.map((link) => (
+          <a class="ndc-link" href={link.href}>
+            {link.label}
+            <span class="ndc-ld" />
+          </a>
+        ))
+      }
+      <a class="nav-cta" href="#contato">Contato</a>
+    </div>
+    <button class="ndc-burger" type="button" @click="open = !open">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <div class="mobile" x-show="open" x-cloak>
+    {
+      navLinks.map((link) => (
+        <a class="m-link" href={link.href} @click="open = false">
+          {link.label}
+        </a>
+      ))
+    }
+    <a class="m-link m-cta" href="#contato" @click="open = false">Contato</a>
+  </div>
+</div>
+
+<style>
+  [x-cloak] {
+    display: none;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--z-nav);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--space-14) var(--space-22);
+    background: var(--color-bg-72);
+    backdrop-filter: blur(var(--blur-nav));
+    border-bottom: var(--border-1) solid var(--color-line);
+  }
+
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: var(--space-10);
+    text-decoration: none;
+  }
+
+  .brand img {
+    height: var(--w-logo-nav);
+    width: auto;
+    filter: var(--filter-logo-nav);
+  }
+
+  .ndc-desknav {
+    display: flex;
+    align-items: center;
+    gap: var(--space-26);
+  }
+
+  .ndc-link {
+    position: relative;
+    color: var(--color-nav-link);
+    font-size: var(--fs-14);
+    letter-spacing: var(--ls-12);
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color var(--dur-base);
+  }
+
+  .ndc-ld {
+    position: absolute;
+    left: 0;
+    bottom: calc(-1 * var(--space-6));
+    width: 0;
+    height: var(--border-2);
+    background: var(--color-accent);
+    transition: width var(--dur-link);
+  }
+
+  .nav-cta {
+    color: var(--color-white);
+    font-size: var(--fs-14);
+    letter-spacing: var(--ls-12);
+    text-transform: uppercase;
+    text-decoration: none;
+    border: var(--border-1) solid var(--color-accent-60);
+    padding: var(--space-7) var(--space-14);
+  }
+
+  .ndc-burger {
+    display: none;
+    flex-direction: column;
+    gap: var(--space-5);
+    padding: var(--space-6);
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  .ndc-burger span {
+    display: block;
+    width: var(--w-burger);
+    height: var(--border-2);
+    background: var(--color-text);
+  }
+
+  .mobile {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-mobile-menu);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-26);
+    background: var(--color-bg-97);
+  }
+
+  .m-link {
+    color: var(--color-text);
+    font-family: var(--font-display);
+    font-size: var(--fs-30);
+    letter-spacing: var(--ls-04);
+    text-transform: uppercase;
+    text-decoration: none;
+  }
+
+  .m-cta {
+    color: var(--color-accent);
+  }
+</style>
