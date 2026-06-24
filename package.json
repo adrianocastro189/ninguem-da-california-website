@@ -31,25 +31,26 @@
     ]
   },
   "dependencies": {
+    "alpinejs": "3.x",
     "astro": "5.1.x",
-    "alpinejs": "3.x"
+    "zod": "4.x"
   },
   "devDependencies": {
     "@astrojs/check": "0.9.x",
-    "@types/alpinejs": "3.x",
-    "typescript": "5.7.x",
-    "eslint": "9.x",
     "@eslint/js": "9.x",
+    "@types/alpinejs": "3.x",
+    "eslint": "9.x",
     "eslint-plugin-astro": "1.x",
     "globals": "15.x",
-    "stylelint": "16.x",
-    "stylelint-config-standard": "37.x",
-    "postcss-html": "1.x",
+    "husky": "9.x",
     "jscpd": "4.x",
+    "lint-staged": "15.x",
+    "postcss-html": "1.x",
     "prettier": "3.x",
     "prettier-plugin-astro": "0.14.x",
-    "vitest": "3.x",
-    "husky": "9.x",
-    "lint-staged": "15.x"
+    "stylelint": "16.x",
+    "stylelint-config-standard": "37.x",
+    "typescript": "5.7.x",
+    "vitest": "3.x"
   }
 }
