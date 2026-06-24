@@ -1,0 +1,49 @@
+---
+// The four fixed VHS overlays from the prototype (L40-43): scanlines, the
+// rolling brightness band, the vignette, and the purple flicker. All are
+// pointer-events:none so they never block interaction.
+---
+
+<div class="scanlines"></div>
+<div class="band"></div>
+<div class="vignette"></div>
+<div class="flicker"></div>
+
+<style>
+  div {
+    position: fixed;
+    pointer-events: none;
+  }
+
+  .scanlines {
+    inset: 0;
+    z-index: var(--z-overlay-base);
+    background: var(--vhs-scanlines);
+    mix-blend-mode: multiply;
+    animation: ndc-scan var(--dur-scan) steps(2) infinite;
+  }
+
+  .band {
+    left: 0;
+    right: 0;
+    height: 32%;
+    z-index: var(--z-overlay-band);
+    background: var(--vhs-band);
+    animation: ndc-band var(--dur-band) linear infinite;
+  }
+
+  .vignette {
+    inset: 0;
+    z-index: var(--z-overlay-vignette);
+    background: var(--vhs-vignette);
+  }
+
+  .flicker {
+    inset: 0;
+    z-index: var(--z-overlay-flicker);
+    background: var(--color-accent);
+    mix-blend-mode: overlay;
+    opacity: 0.04;
+    animation: ndc-flick var(--dur-flick) ease-in-out infinite;
+  }
+</style>
