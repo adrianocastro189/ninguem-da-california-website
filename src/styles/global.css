@@ -26,3 +26,67 @@ body {
   background: var(--color-accent);
   color: var(--color-bg);
 }
+
+/* ============================================================
+   Shared interaction classes — ported from the prototype's global <style>
+   (.prototype/Site.dc.html L25-34). Kept global (not per-component) so the
+   hover/responsive rules live in one place. Tokens only. !important mirrors
+   the prototype, where these override the base styles. See ARCHITECTURE.md §6.
+   ============================================================ */
+
+.ndc-link:hover {
+  color: var(--color-white) !important;
+}
+
+.ndc-link:hover .ndc-ld {
+  width: 100% !important;
+}
+
+.ndc-pola:hover {
+  animation: ndc-wiggle var(--dur-wiggle) ease-in-out;
+  z-index: var(--z-card-hover);
+}
+
+.ndc-pola:hover .ndc-pimg {
+  transform: scale(1.05);
+}
+
+.ndc-social:hover {
+  border-color: var(--color-accent) !important;
+  color: var(--color-white) !important;
+  transform: translateY(calc(-1 * var(--space-3)));
+  box-shadow: var(--shadow-social-hover);
+}
+
+.ndc-cbtn:hover {
+  background: var(--color-accent) !important;
+  color: var(--color-bg) !important;
+  box-shadow: var(--shadow-cbtn-hover);
+}
+
+.ndc-arrow:hover {
+  background: var(--color-accent) !important;
+  color: var(--color-bg) !important;
+  border-color: var(--color-accent) !important;
+}
+
+.ndc-rep:hover {
+  background: var(--color-accent-08) !important;
+}
+
+.ndc-rep:hover .ndc-rnum {
+  color: var(--color-accent) !important;
+}
+
+/* Mobile breakpoint. Pre-approved literal: CSS custom properties cannot be
+   used in @media conditions, so 760px (the prototype's only breakpoint)
+   lives here as the single source. Mirrors .prototype/Site.dc.html L34. */
+@media (width <= 760px) {
+  .ndc-desknav {
+    display: none !important;
+  }
+
+  .ndc-burger {
+    display: flex !important;
+  }
+}
