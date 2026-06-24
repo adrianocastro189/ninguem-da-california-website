@@ -1,0 +1,135 @@
+---
+import SectionHeading from '../ui/SectionHeading.astro';
+import CarouselArrow from '../ui/CarouselArrow.astro';
+import { site } from '../../data/site';
+import { pad2 } from '../../lib/format';
+
+const count = site.gallery.length || 1;
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+const asset = (path: string): string => `${base}/${path}`;
+---
+
+<section id="galeria">
+  <SectionHeading index="03" kicker="GALERIA" title="Fotos" />
+  <div
+    class="frame"
+    x-data={`{ i: 0, n: ${count}, prev() { this.i = (this.i - 1 + this.n) % this.n }, next() { this.i = (this.i + 1) % this.n } }`}
+  >
+    <div class="track" :style="'transform: translateX(-' + i * 100 + '%)'">
+      {
+        site.gallery.map((photo, idx) => (
+          <div
+            class="slide"
+            style={
+              photo.src ? `background-image: url('${asset(photo.src)}')` : ''
+            }
+          >
+            {!photo.src && <div class="noimg">[ FOTO {pad2(idx + 1)} ]</div>}
+            <div class="caption">{photo.caption}</div>
+          </div>
+        ))
+      }
+    </div>
+    <div class="nav nav-prev">
+      <CarouselArrow dir="prev" click="prev()" />
+    </div>
+    <div class="nav nav-next">
+      <CarouselArrow dir="next" click="next()" />
+    </div>
+    <div
+      class="counter"
+      x-text="String(i + 1).padStart(2, '0') + ' / ' + String(n).padStart(2, '0')"
+    >
+    </div>
+  </div>
+</section>
+
+<style>
+  section {
+    position: relative;
+    max-width: var(--container-1080);
+    margin: 0 auto;
+    padding: var(--space-70) var(--space-22) var(--space-90);
+  }
+
+  /* margin-top recreates the prototype's h2 bottom gap (30px). */
+  .frame {
+    position: relative;
+    margin-top: var(--space-30);
+    width: 100%;
+    aspect-ratio: var(--ratio-video);
+    overflow: hidden;
+    background: var(--color-black);
+    border: var(--border-1) solid var(--color-line-strong);
+  }
+
+  .track {
+    display: flex;
+    height: 100%;
+    transition: transform var(--dur-slide) var(--ease-slide);
+  }
+
+  .slide {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    flex: 0 0 100%;
+    height: 100%;
+    background-color: var(--color-gallery-bg);
+    background-size: cover;
+    background-position: center;
+  }
+
+  .noimg {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--stripe-gallery);
+    color: var(--color-gallery-foto);
+    font-family: var(--font-mono);
+    font-size: var(--fs-22);
+    letter-spacing: var(--ls-18);
+  }
+
+  .caption {
+    position: relative;
+    z-index: var(--z-caption);
+    padding: var(--space-16) var(--space-20);
+    color: var(--color-white);
+    font-family: var(--font-mono);
+    font-size: var(--fs-20);
+    letter-spacing: var(--ls-08);
+    text-shadow: var(--shadow-caption);
+  }
+
+  .nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: var(--z-carousel-control);
+  }
+
+  .nav-prev {
+    left: var(--space-14);
+  }
+
+  .nav-next {
+    right: var(--space-14);
+  }
+
+  .counter {
+    position: absolute;
+    top: var(--space-14);
+    right: var(--space-16);
+    z-index: var(--z-carousel-control);
+    padding: var(--space-2) var(--space-10);
+    background: var(--color-bg-70);
+    color: var(--color-accent);
+    font-family: var(--font-mono);
+    font-size: var(--fs-18);
+    letter-spacing: var(--ls-10);
+  }
+</style>
