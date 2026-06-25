@@ -70,6 +70,19 @@ import { site } from '../../data/site';
     margin-top: var(--space-36);
   }
 
+  /* The e-mail is one long unbreakable word; on small screens the horizontal
+     padding pushes it past the viewport. Shrink padding/size and let it wrap.
+     760px is the project's single pre-approved breakpoint (see global.css). */
+  @media (width <= 760px) {
+    .email {
+      max-width: 100%;
+      padding-left: var(--space-16);
+      padding-right: var(--space-16);
+      font-size: var(--fs-18);
+      overflow-wrap: anywhere;
+    }
+  }
+
   .ndc-social {
     display: flex;
     align-items: center;
