@@ -139,4 +139,15 @@ const logoWhite = `${base}/assets/logo-white.png`;
     height: 100%;
     border: 0;
   }
+
+  /* Roughly halve the hero's vertical padding on mobile (130/70 -> 70/36). Top
+     is kept at 70px (not 60) so the REC kicker clears the ~59px fixed nav with
+     breathing room; at 60px it sat 1px under the bar. Pre-approved by the
+     architect. 760px is the project breakpoint. */
+  @media (width <= 760px) {
+    header {
+      padding-top: var(--space-70);
+      padding-bottom: var(--space-36);
+    }
+  }
 </style>

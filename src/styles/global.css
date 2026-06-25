@@ -95,4 +95,25 @@ body {
   .ndc-burger {
     display: flex !important;
   }
+
+  /* Halve the sections' vertical padding on mobile (horizontal stays). The
+     #id selector (1,0,0) outranks each section's scoped element selector, so
+     no !important is needed. Grouped here to keep jscpd at zero. */
+  #banda,
+  #galeria,
+  #videos,
+  #repertorio,
+  #agenda {
+    padding-top: var(--space-36);
+    padding-bottom: var(--space-46);
+  }
+
+  #historia {
+    padding-block: var(--space-40);
+  }
+
+  #contato {
+    padding-top: var(--space-40);
+    padding-bottom: var(--space-36);
+  }
 }
