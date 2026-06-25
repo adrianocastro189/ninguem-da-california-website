@@ -1,8 +1,9 @@
-/** Build a privacy-friendly nocookie embed URL for a YouTube id. '' when empty. */
-export function embedUrl(id: string): string {
-  return id
-    ? `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`
-    : '';
+/** Build a privacy-friendly nocookie embed URL for a YouTube id. '' when empty.
+ *  Pass { autoplay: true } to append &autoplay=1 (used by the video lightbox). */
+export function embedUrl(id: string, opts?: { autoplay?: boolean }): string {
+  if (!id) return '';
+  const base = `https://www.youtube-nocookie.com/embed/${id}?rel=0&modestbranding=1`;
+  return opts?.autoplay ? `${base}&autoplay=1` : base;
 }
 
 /** Extract a YouTube id from a full URL or a bare id. '' when none found. */

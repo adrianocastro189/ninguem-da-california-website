@@ -164,6 +164,7 @@
   --container-1000: 1000px;
   --container-1080: 1080px;
   --container-1180: 1180px;
+  --lightbox-max-w: 900px; /* video lightbox 16:9 frame max width */
   --w-logo-nav: 30px; /* nav logo height */
   --w-logo-footer: 34px; /* footer logo height */
   --w-logo-hero: min(620px, 88vw); /* hero logo width */
@@ -253,6 +254,7 @@
   --z-overlay-flicker: 93;
   --z-mobile-menu: 99;
   --z-nav: 100;
+  --z-lightbox: 200; /* video lightbox overlay, above the nav */
   --z-card-hover: 5;
   --z-carousel-control: 3;
   --z-caption: 2;

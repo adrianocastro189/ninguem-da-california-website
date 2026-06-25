@@ -1,0 +1,91 @@
+---
+// Single full-screen video lightbox, mounted once on the page. Sections
+// dispatch a `ndc-open-video` window event carrying the embed URL; this
+// component shows the overlay and plays it. The <template x-if> creates and
+// destroys the iframe, so closing stops the audio. The close button is
+// position: fixed so it stays clickable regardless of the video size.
+---
+
+<div
+  class="lb"
+  x-data="{ embed: '' }"
+  x-cloak
+  x-show="embed !== ''"
+  x-on:ndc-open-video.window="embed = $event.detail.embed"
+  x-on:keydown.escape.window="embed = ''"
+  x-effect="document.body.style.overflow = embed ? 'hidden' : ''"
+>
+  <div class="lb-scrim" x-on:click="embed = ''"></div>
+  <div class="lb-frame">
+    <template x-if="embed">
+      <iframe
+        x-bind:src="embed"
+        title="Vídeo"
+        allow="autoplay; encrypted-media; picture-in-picture; fullscreen"
+        allowfullscreen></iframe>
+    </template>
+  </div>
+  <button
+    class="lb-close"
+    type="button"
+    aria-label="Fechar vídeo"
+    x-on:click="embed = ''">✕</button
+  >
+</div>
+
+<style>
+  .lb {
+    position: fixed;
+    inset: 0;
+    z-index: var(--z-lightbox);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .lb-scrim {
+    position: absolute;
+    inset: 0;
+    background: var(--color-bg-97);
+  }
+
+  .lb-frame {
+    position: relative;
+    width: min(var(--lightbox-max-w), 92vw);
+    aspect-ratio: var(--ratio-video);
+    max-height: 86vh;
+    box-shadow: var(--shadow-video);
+  }
+
+  .lb-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .lb-close {
+    position: fixed;
+    top: var(--space-16);
+    right: var(--space-16);
+    width: var(--w-arrow);
+    height: var(--w-arrow);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: var(--border-1) solid var(--color-line-30);
+    background: var(--color-bg-60);
+    color: var(--color-white);
+    font-size: var(--fs-22);
+    cursor: pointer;
+    z-index: calc(var(--z-lightbox) + 1);
+    transition: all var(--dur-base);
+  }
+
+  .lb-close:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-color: var(--color-accent);
+  }
+</style>

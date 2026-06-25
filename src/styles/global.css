@@ -27,6 +27,12 @@ body {
   color: var(--color-bg);
 }
 
+/* Hide Alpine-cloaked elements until the component mounts (avoids a flash of
+   the video lightbox overlay on load). See ARCHITECTURE.md §6. */
+[x-cloak] {
+  display: none !important;
+}
+
 /* ============================================================
    Shared interaction classes — ported from the prototype's global <style>
    (.prototype/Site.dc.html L25-34). Kept global (not per-component) so the

@@ -46,4 +46,16 @@ describe('embedUrl', () => {
   it('returns an empty string for an empty id', () => {
     expect(embedUrl('')).toBe('');
   });
+
+  it('appends autoplay when the option is set', () => {
+    expect(embedUrl('abc123', { autoplay: true })).toBe(
+      'https://www.youtube-nocookie.com/embed/abc123?rel=0&modestbranding=1&autoplay=1',
+    );
+  });
+
+  it('omits autoplay by default', () => {
+    expect(embedUrl('abc123')).toBe(
+      'https://www.youtube-nocookie.com/embed/abc123?rel=0&modestbranding=1',
+    );
+  });
 });
