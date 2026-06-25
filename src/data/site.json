@@ -5,72 +5,190 @@
     "instagram": "https://www.instagram.com/ninguem.dacalifornia/"
   },
   "featuredVideo": "https://www.youtube.com/watch?v=z8_S_wHfDxo",
-  "history": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+  "history": "A Ninguém da Califórnia nasceu em 2022 com a proposta de trazer ao palco os lados B de grandes bandas de rock internacional dos anos 90 e 2000. Formada por Adriano e Guilherme, a banda ganhou novos integrantes ao longo do caminho, com Marcelo na bateria e Matheus no vocal, e expandiu seu repertório, equilibrando clássicos conhecidos com a essência que a define: valorizar músicas que fogem do óbvio.",
   "members": [
-    { "name": "Mateus Castro", "role": "Guitarra e vocais", "photo": "" },
+    {
+      "name": "Mateus Castro",
+      "role": "Guitarra e vocais",
+      "photo": "img/integrantes/mateus.png"
+    },
     {
       "name": "Adriano Castro",
       "role": "Guitarra e vocais de apoio",
-      "photo": ""
+      "photo": "img/integrantes/adriano.png"
     },
     {
       "name": "Guilherme Morrison",
       "role": "Baixo e vocais de apoio",
-      "photo": ""
+      "photo": "img/integrantes/guilherme.png"
     },
-    { "name": "Marcelo Oliveira", "role": "Bateria", "photo": "" }
+    {
+      "name": "Marcelo Oliveira",
+      "role": "Bateria",
+      "photo": "img/integrantes/marcelo.png"
+    }
   ],
   "gallery": [
-    { "src": "", "caption": "Foto ao vivo" },
-    { "src": "", "caption": "Backstage" },
-    { "src": "", "caption": "Ensaio" },
-    { "src": "", "caption": "Show" }
+    {
+      "src": "img/shows/2025-barbante-01.jpg",
+      "caption": "Cervejaria Barbante, Juiz de Fora/MG"
+    },
+    {
+      "src": "img/shows/2025-barbante-02.jpg",
+      "caption": "Cervejaria Barbante, Juiz de Fora/MG"
+    },
+    {
+      "src": "img/shows/2025-ouro-branco-01.jpg",
+      "caption": "Ouro Branco/MG"
+    },
+    {
+      "src": "img/shows/2025-ouro-branco-02.jpg",
+      "caption": "Ouro Branco/MG"
+    }
   ],
-  "shorts": ["https://www.youtube.com/watch?v=z8_S_wHfDxo"],
+  "shorts": [
+    "https://www.youtube.com/shorts/_nZZ-ub9400",
+    "https://www.youtube.com/shorts/WkuC67mcico",
+    "https://www.youtube.com/shorts/6ZF8RleN97o",
+    "https://www.youtube.com/shorts/NZCerWY5ORY",
+    "https://www.youtube.com/shorts/Td38bMiR5Lk"
+  ],
   "shows": [],
   "repertoire": [
-    { "title": "The Fallen", "artist": "Franz Ferdinand", "link": "" },
+    {
+      "title": "The Fallen",
+      "artist": "Franz Ferdinand",
+      "link": "https://www.youtube.com/watch?v=AaKlvLLeIKc"
+    },
     {
       "title": "If I Had a Tail",
       "artist": "Queens of the Stone Age",
-      "link": ""
+      "link": "https://www.youtube.com/watch?v=5wmvcgZ1ovs"
     },
-    { "title": "Chocolate", "artist": "Snow Patrol", "link": "" },
+    {
+      "title": "Chocolate",
+      "artist": "Snow Patrol",
+      "link": "https://www.youtube.com/watch?v=cf57JNu40-Y"
+    },
     {
       "title": "Frances Farmer Will Have Her Revenge On Seattle",
       "artist": "Nirvana",
+      "link": "https://www.youtube.com/watch?v=BrZQ28sf4yI"
+    },
+    {
+      "title": "Stacked Actors",
+      "artist": "Foo Fighters",
       "link": ""
     },
-    { "title": "Stacked Actors", "artist": "Foo Fighters", "link": "" },
-    { "title": "Live Forever", "artist": "Oasis", "link": "" },
-    { "title": "Bug Eyes", "artist": "Dredg", "link": "" },
-    { "title": "Mexicola", "artist": "Queens of the Stone Age", "link": "" },
-    { "title": "Dam That River", "artist": "Alice In Chains", "link": "" },
-    { "title": "Bigger Stronger", "artist": "Coldplay", "link": "" },
-    { "title": "Planet Telex", "artist": "Radiohead", "link": "" },
+    {
+      "title": "Live Forever",
+      "artist": "Oasis",
+      "link": "https://www.youtube.com/watch?v=jpBq4vy6EXU"
+    },
+    {
+      "title": "Bug Eyes",
+      "artist": "Dredg",
+      "link": "https://www.youtube.com/shorts/-Nunmpu-qto"
+    },
+    {
+      "title": "Mexicola",
+      "artist": "Queens of the Stone Age",
+      "link": "https://www.youtube.com/watch?v=kpdgxrjMIqM"
+    },
+    {
+      "title": "Dam That River",
+      "artist": "Alice In Chains",
+      "link": "https://www.youtube.com/shorts/6ZF8RleN97o"
+    },
+    {
+      "title": "Bigger Stronger",
+      "artist": "Coldplay",
+      "link": "https://www.youtube.com/watch?v=oDsuwv2vCt0"
+    },
+    {
+      "title": "Planet Telex",
+      "artist": "Radiohead",
+      "link": "https://www.youtube.com/shorts/NZCerWY5ORY"
+    },
     {
       "title": "No More Keeping My Feet on the Ground",
       "artist": "Coldplay",
-      "link": ""
+      "link": "https://www.youtube.com/watch?v=kHugAXrixMw"
     },
-    { "title": "Weight of Love", "artist": "The Black Keys", "link": "" },
-    { "title": "Champagne Supernova", "artist": "Oasis", "link": "" },
-    { "title": "Until It Sleeps", "artist": "Metallica", "link": "" },
-    { "title": "Choking Game", "artist": "Chevelle", "link": "" },
+    {
+      "title": "Weight of Love",
+      "artist": "The Black Keys",
+      "link": "https://www.youtube.com/watch?v=bK9Oa8iB-oM"
+    },
+    {
+      "title": "Champagne Supernova",
+      "artist": "Oasis",
+      "link": "https://www.youtube.com/watch?v=4t_uHz9LgrU"
+    },
+    {
+      "title": "Until It Sleeps",
+      "artist": "Metallica",
+      "link": "https://www.youtube.com/shorts/Td38bMiR5Lk"
+    },
+    {
+      "title": "Choking Game",
+      "artist": "Chevelle",
+      "link": "https://www.youtube.com/watch?v=w6mGgwXll9M"
+    },
     {
       "title": "Dead End Friends",
       "artist": "Them Crooked Vultures",
       "link": ""
     },
-    { "title": "Electioneering", "artist": "Radiohead", "link": "" },
-    { "title": "Ulysses", "artist": "Franz Ferdinand", "link": "" },
-    { "title": "Reptilia", "artist": "The Strokes", "link": "" },
-    { "title": "Take Me Out", "artist": "Franz Ferdinand", "link": "" },
-    { "title": "Fever", "artist": "The Black Keys", "link": "" },
-    { "title": "Wolf Like Me", "artist": "TV on the Radio", "link": "" },
-    { "title": "Quotes", "artist": "Dredg", "link": "" },
-    { "title": "Turn It Again", "artist": "Red Hot Chili Peppers", "link": "" },
-    { "title": "Cave", "artist": "Muse", "link": "" },
-    { "title": "Do the Evolution", "artist": "Pearl Jam", "link": "" }
+    {
+      "title": "Electioneering",
+      "artist": "Radiohead",
+      "link": ""
+    },
+    {
+      "title": "Ulysses",
+      "artist": "Franz Ferdinand",
+      "link": "https://www.youtube.com/watch?v=z8_S_wHfDxo"
+    },
+    {
+      "title": "Reptilia",
+      "artist": "The Strokes",
+      "link": ""
+    },
+    {
+      "title": "Take Me Out",
+      "artist": "Franz Ferdinand",
+      "link": ""
+    },
+    {
+      "title": "Fever",
+      "artist": "The Black Keys",
+      "link": "https://youtu.be/z8_S_wHfDxo?si=oaCBA1ZG2MvDjLQV&t=171"
+    },
+    {
+      "title": "Wolf Like Me",
+      "artist": "TV on the Radio",
+      "link": "https://www.youtube.com/shorts/WkuC67mcico"
+    },
+    {
+      "title": "Quotes",
+      "artist": "Dredg",
+      "link": ""
+    },
+    {
+      "title": "Turn It Again",
+      "artist": "Red Hot Chili Peppers",
+      "link": ""
+    },
+    {
+      "title": "Cave",
+      "artist": "Muse",
+      "link": ""
+    },
+    {
+      "title": "Do the Evolution",
+      "artist": "Pearl Jam",
+      "link": ""
+    }
   ]
 }

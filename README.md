@@ -1,23 +1,18 @@
-# 🎸 Site da Ninguém da Califórnia
+# Site da Ninguém da Califórnia
 
 Site oficial da banda **Ninguém da Califórnia**, de Juiz de Fora/MG.
 
-Este guia é pra você **atualizar o conteúdo do site sem precisar saber
-programar**. Tudo que a banda muda no dia a dia (vídeos, músicas, fotos,
-shows) fica em **um único arquivo**. Você edita esse arquivo, salva, envia
-pro GitHub, e em poucos minutos o site no ar se atualiza sozinho. 🚀
-
----
+Este é um guia de **atualização do conteúdo do site**. Tudo que a banda muda no
+dia a dia (vídeos, músicas, fotos, shows) fica em **um único arquivo**. Você
+edita esse arquivo, salva, envia pro GitHub, e em poucos minutos o site no ar se
+atualiza sozinho. 🚀
 
 ## 🧠 A ideia em uma frase
 
 > Existe **um arquivo só** que controla todo o conteúdo do site:
 > **`src/data/site.json`**. Você nunca precisa mexer em mais nada.
 
-Pensa nesse arquivo como a "ficha de cadastro" da banda. Mudou a ficha →
-o site muda. 📋
-
----
+Pensa nesse arquivo como o "banco de dados" da banda.
 
 ## 📁 Onde fica o que
 
@@ -30,21 +25,17 @@ o site muda. 📋
 ⚠️ **Só mexa nesses lugares.** O resto do projeto é a "máquina" que monta o
 site. Se mexer no resto sem saber, pode quebrar. 🙅
 
----
-
 ## ✍️ Como editar o `site.json` (o coração do site)
 
-O arquivo é organizado em "blocos". Vou explicar cada um. Antes, **3 regras
-de ouro** pra não quebrar o arquivo:
+O "banco de dados" do site é um JSON.
 
 1. ✅ Todo texto fica **entre aspas duplas**: `"assim"`.
 2. ✅ Cada item de uma lista termina com **vírgula**, exceto o último.
-3. ✅ Não apague as chaves `{ }` nem os colchetes `[ ]`. Eles são as
-   "caixinhas" que organizam tudo.
+3. ✅ Não apague as chaves `{ }` nem os colchetes `[ ]`.
 
-> 😌 Calma: se você errar uma vírgula ou uma aspa, **o site simplesmente
-> não atualiza** e o GitHub te avisa que deu erro. Ele **não** publica uma
-> versão quebrada. Você conserta e envia de novo.
+> 😌 Se você errar uma vírgula ou uma aspa, **o site simplesmente não atualiza**
+> e o GitHub te avisa que deu erro. Ele **não** publica uma versão quebrada.
+> Você conserta e envia de novo.
 
 ### 🎬 Vídeo de destaque (o vídeo grande lá no topo)
 
@@ -146,10 +137,7 @@ inteira (e a vírgula sobrando, se for o caso).
 "history": "Escreva aqui a história da banda...",
 ```
 
-👉 Um texto corrido entre aspas. (Hoje está com um texto de exemplo —
-troque pela história de verdade quando quiser. ✏️)
-
----
+👉 Um texto corrido entre aspas.
 
 ## 📸 Como adicionar fotos
 
@@ -169,14 +157,12 @@ As fotos ficam dentro da pasta **`public/img/`**. O passo a passo:
 > "paisagem" (mais largas que altas). Fotos de integrante ficam em
 > "quadrado". Não precisa ser exato, o site se ajeita.
 
----
-
 ## 🔄 Como publicar suas mudanças (passo a passo)
 
-O site mora no GitHub. Quando você envia uma alteração, um robozinho 🤖
-(GitHub Actions) monta o site e publica sozinho. Você só precisa enviar.
+O site mora no GitHub. Quando você envia uma alteração, o (GitHub Actions) monta
+o site e publica sozinho. Você só precisa enviar.
 
-### 🅰️ Jeito fácil — pelo site do GitHub (sem instalar nada)
+### 🅰️ Pelo site do GitHub (sem instalar nada)
 
 1. 🌐 Entre em
    [github.com/adrianocastro189/ninguem-da-california-website](https://github.com/adrianocastro189/ninguem-da-california-website).
@@ -192,7 +178,7 @@ Para **enviar uma foto** por esse jeito: entre na pasta `public/img/`,
 clique em **"Add file" → "Upload files"**, arraste a imagem e confirme com
 "Commit changes".
 
-### 🅱️ Jeito do desenvolvedor — pelo computador (Git)
+### 🅱️ Pelo computador (Git)
 
 Se você usa o Git no computador:
 
@@ -215,7 +201,7 @@ git commit -m "atualiza repertorio e fotos"
 git push
 ```
 
-⏳ Depois do `push`, o robô publica em alguns minutos.
+⏳ Depois do `push`, a GH Action publica em alguns minutos.
 
 ### 👀 Como saber se publicou (ou se deu erro)
 
@@ -224,9 +210,7 @@ git push
 3. ✅ **Verde** = publicou com sucesso! Atualize o site no navegador.
 4. ❌ **Vermelho** = teve um erro (provavelmente uma vírgula ou aspa no
    JSON). Clique nele pra ver a mensagem, conserte o arquivo e envie de
-   novo. **O site no ar continua o mesmo até dar verde** — nada quebra. 🛡️
-
----
+   novo. **O site no ar continua o mesmo até dar verde** — nada quebra.
 
 ## 👀 Ver as mudanças antes de publicar (opcional)
 
@@ -241,8 +225,6 @@ npm run dev   # abre o site em http://localhost:4321
 Abra o endereço que aparecer no navegador. Conforme você edita e salva, a
 página atualiza sozinha. 🔁 Quando estiver bom, siga o passo de publicar.
 
----
-
 ## ❓ Deu algo errado?
 
 - 😟 **Enviei e o site não mudou.** Veja a aba **Actions**: se está
@@ -251,15 +233,11 @@ página atualiza sozinha. 🔁 Quando estiver bom, siga o passo de publicar.
 - 🤔 **Não tenho certeza se não quebrei nada.** Cole o conteúdo do
   `site.json` em [jsonlint.com](https://jsonlint.com) — ele diz na hora se
   o arquivo está válido. ✅
-- 🆘 **Travou de vez.** Chama o time técnico. Como cada mudança fica
-  guardada no histórico do GitHub, dá sempre pra voltar pra última versão
-  que funcionava. 💾
-
----
+- 🆘 **Travou de vez.** Chama o responsável pelo site (Adriano). Como cada
+  mudança fica guardada no histórico do GitHub, dá sempre pra voltar pra última
+  versão que funcionava. 💾
 
 Feito com 💜 para a Ninguém da Califórnia.
 
----
-
-> 🛠️ **Documentação técnica** (para quem desenvolve, não para a banda):
+> 🛠️ **Documentação técnica**:
 > `ARCHITECTURE.md` e `CODING_STANDARDS.md` na raiz do projeto.
