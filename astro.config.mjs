@@ -4,8 +4,8 @@ import { defineConfig } from 'astro/config';
 // that switch). When the domain exists, `base` returns to '/' and `site`
 // changes to the real URL — one-line change. See ARCHITECTURE.md §9.
 export default defineConfig({
-  site: 'https://adrianocastro189.github.io',
-  base: '/ninguem-da-california-website',
+  site: 'https://ninguemdacalifornia.com.br',
+  base: '/',
   output: 'static',
   trailingSlash: 'never',
   build: { format: 'file' },
