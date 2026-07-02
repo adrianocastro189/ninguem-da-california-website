@@ -122,7 +122,7 @@ inteira (e a vírgula sobrando, se for o caso).
 ### 📧 E-mail e redes sociais
 
 ```json
-"email": "contato@ninguemdacalifornia.com",
+"email": "contato@ninguemdacalifornia.com.br",
 "socials": {
   "youtube": "https://www.youtube.com/@ninguem-da-california",
   "instagram": "https://www.instagram.com/ninguem.dacalifornia/"

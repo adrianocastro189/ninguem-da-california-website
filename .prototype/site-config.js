@@ -6,7 +6,7 @@
 window.SITE_CONFIG = {
 
   /* E-mail e redes sociais */
-  email: "contato@ninguemdacalifornia.com",
+  email: "contato@ninguemdacalifornia.com.br",
   socials: {
     youtube:   "https://www.youtube.com/@ninguem-da-california",
     instagram: "https://www.instagram.com/ninguem.dacalifornia/"
