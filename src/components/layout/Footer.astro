@@ -1,6 +1,7 @@
 ---
 const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 const logoWhite = `${base}/assets/logo-white.png`;
+const pressKitUrl = `${base}/assets/presskit.pdf`;
 const privacyUrl = `${base}/privacidade`;
 const year = new Date().getFullYear();
 ---
@@ -10,7 +11,10 @@ const year = new Date().getFullYear();
   <div class="copy">
     © {year} NINGUÉM DA CALIFÓRNIA · TODOS OS DIREITOS RESERVADOS
   </div>
-  <a class="privacy" href={privacyUrl}>Política de privacidade</a>
+  <div class="links">
+    <a class="privacy" href={privacyUrl}>Política de privacidade</a>
+    <a class="privacy" href={pressKitUrl}>Press kit</a>
+  </div>
 </footer>
 
 <style>
@@ -36,6 +40,12 @@ const year = new Date().getFullYear();
     font-size: var(--fs-17);
     letter-spacing: var(--ls-12);
     text-align: center;
+  }
+
+  .links {
+    display: flex;
+    align-items: center;
+    gap: var(--space-14);
   }
 
   .privacy {
