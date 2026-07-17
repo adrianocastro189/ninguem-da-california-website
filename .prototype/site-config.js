@@ -26,7 +26,7 @@ window.SITE_CONFIG = {
   members: [
     { name: "Mateus Castro",      role: "Guitarra e vocais",            photo: "" },
     { name: "Adriano Castro",     role: "Guitarra e vocais de apoio",   photo: "" },
-    { name: "Guilherme Morrison", role: "Baixo e vocais de apoio",      photo: "" },
+    { name: "Guilherme Morisson", role: "Baixo e vocais de apoio",      photo: "" },
     { name: "Marcelo Oliveira",   role: "Bateria",                      photo: "" }
   ],
 
