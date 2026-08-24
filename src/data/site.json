@@ -30,6 +30,14 @@
   ],
   "gallery": [
     {
+      "src": "img/geral/geral-001.jpg",
+      "caption": "Promocional"
+    },
+    {
+      "src": "img/geral/geral-002.jpg",
+      "caption": "Promocional"
+    },
+    {
       "src": "img/shows/2025-barbante-01.jpg",
       "caption": "Cervejaria Barbante, Juiz de Fora/MG"
     },
@@ -44,14 +52,6 @@
     {
       "src": "img/shows/2025-ouro-branco-02.jpg",
       "caption": "Ouro Branco/MG"
-    },
-    {
-      "src": "img/geral/geral-001.jpg",
-      "caption": "Promocional"
-    },
-    {
-      "src": "img/geral/geral-002.jpg",
-      "caption": "Promocional"
     }
   ],
   "shorts": [
