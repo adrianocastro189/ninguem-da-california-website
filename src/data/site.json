@@ -30,6 +30,18 @@
   ],
   "gallery": [
     {
+      "src": "img/shows/2026-muzik-01.jpg",
+      "caption": "Muzik, Juiz de Fora/MG"
+    },
+    {
+      "src": "img/shows/2026-muzik-02.jpg",
+      "caption": "Muzik, Juiz de Fora/MG"
+    },
+    {
+      "src": "img/shows/2026-muzik-03.jpg",
+      "caption": "Muzik, Juiz de Fora/MG"
+    },
+    {
       "src": "img/geral/geral-001.jpg",
       "caption": "Promocional"
     },
@@ -61,15 +73,7 @@
     "https://www.youtube.com/shorts/NZCerWY5ORY",
     "https://www.youtube.com/shorts/Td38bMiR5Lk"
   ],
-  "shows": [
-    {
-      "date": "2026-09-11",
-      "city": "Juiz de Fora, MG",
-      "venue": "Muzik",
-      "time": "21h30",
-      "ticket": "contato@ninguemdacalifornia.com.br"
-    }
-  ],
+  "shows": [],
   "repertoire": [
     {
       "title": "The Fallen",
