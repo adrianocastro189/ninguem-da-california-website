@@ -74,7 +74,15 @@
     "https://www.youtube.com/shorts/NZCerWY5ORY",
     "https://www.youtube.com/shorts/Td38bMiR5Lk"
   ],
-  "shows": [],
+  "shows": [
+    {
+      "date": "2026-11-13",
+      "city": "Juiz de Fora, MG",
+      "venue": "Muzik",
+      "time": "21h30",
+      "ticket": "contato@ninguemdacalifornia.com.br"
+    }
+  ],
   "repertoire": [
     {
       "title": "The Fallen",
